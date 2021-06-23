@@ -1,9 +1,9 @@
 #!/bin/bash
 
-REPLACE_FILE=~/Documents/dependabot.yml # The file that should replace the file in the repo, must be an absolute path
-FILE=.github/dependabot.yml # Relative from any repos root
+REPLACE_FILE=~/Documents/dependabot.yml # Dependabot template
+FILE=.github/dependabot.yml # File to check
 MOD_FILE=go.mod
-# Don't replace this file if it does not already exist in the repo
+# add dependabot.yml if the file does not exist and go.mod exists
 if [[ ! -f "$FILE" && -f "$MOD_FILE" ]]; then
     echo "go repo without dependabot"
     cp $REPLACE_FILE $FILE
